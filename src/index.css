@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite-react/dist";
+@source "../node_modules/flowbite/dist";
+
+body {
+    background: linear-gradient(280deg,
+            #2563eb 0%,
+            #6366f1 50%,
+            #06b6d4 100%);
+}
+
+.main-color {
+    background: linear-gradient(270deg,
+            #2563eb 0%,
+            #6366f1 50%,
+            #06b6d4 100%);
+
+}
+
+.header {
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.4px);
+    -webkit-backdrop-filter: blur(8.4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-main:hover {
+    background: none;
+    border: 2px solid #eee;
+    color: #eee;
+}
+
+.btn-main {
+    background-color: #eee;
+    color: blue;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
