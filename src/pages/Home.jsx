@@ -1,14 +1,14 @@
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import Stats from "../components/Stats";
-import About from "../components/About";
-import ResumeTimeline from "../components/ResumeTimeline";
-import Skills from "../components/Skills";
-import Projects from "../components/Projects";
-import Certificates from "../components/Certificates";
-import Testimonials from "../components/Testimonials";
-import Contact from "../components/Contact";
-import Footer from "../components/Footer";
+import Navbar from "../components/Navbar/Navbar";
+import Hero from "../components/Hero/Hero";
+import Stats from "../components/Stats/Stats";
+import About from "../components/About/About";
+import ResumeTimeline from "../components/ResumeTimeline/ResumeTimeline";
+import Skills from "../components/Skills/Skills";
+import Projects from "../components/Projects/Projects";
+import Certificates from "../components/Certificates/Certificates";
+import Testimonials from "../components/Testimonials/Testimonials";
+import Contact from "../components/Contact/Contact";
+import Footer from "../components/Footer/Footer";
 import ScrollTopButton from "../components/ScrollTopButton";
 import { useEffect } from "react";
 

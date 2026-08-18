@@ -1,4 +1,4 @@
-import { timelineData } from "../data/timeline";
+import { timelineData } from "../../data/timeline";
 import TimelineItem from "./TimelineItem";
 
 function ResumeTimeline() {

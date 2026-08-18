@@ -1,4 +1,4 @@
-import { stats } from "../data/stats";
+import { stats } from "../../data/stats";
 import StatCard from "./StatCard";
 
 function Stats() {
