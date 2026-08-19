@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { technicalSkills as localSkills } from "../../data/skills";
 import SkillBar from "./SkillBar";
 const API_URL = "http://localhost:5000"
 
@@ -12,10 +11,9 @@ function TechnicalSkills() {
             try {
                 const res = await fetch(`${API_URL}/api/skills`);
                 const data = await res.json();
-                setTechnicalSkills(data);
+                setTechnicalSkills(data.technicalSkills);
             } catch (error) {
                 console.error("error while reading data from backend", error);
-                setTechnicalSkills(localSkills);
             } finally {
                 setLoading(false);
             };
@@ -34,12 +32,12 @@ function TechnicalSkills() {
                 Technical Skills
             </h3>
             {loading ? (
-                <p className="bg-slate-700">Loading Skills...</p>
+                <p className="text-blue-800 font-bold">Loading Skills...</p>
             ) : (
                 <div className="space-y-5">
                     {technicalSkills.map((skill) => (
                         <SkillBar
-                            key={skill.id}
+                            key={skill._id}
                             name={skill.name}
                             level={skill.level}
                         />

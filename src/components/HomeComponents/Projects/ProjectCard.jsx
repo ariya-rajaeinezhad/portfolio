@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 
-function ProjectCard({ id, title, description, image, tags, github, demo, index }) {
+function ProjectCard({ id, title, description, image, tags = [], github, demo, index }) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 40 }}
