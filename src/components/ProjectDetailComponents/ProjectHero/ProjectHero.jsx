@@ -18,14 +18,12 @@ function ProjectHero({ project }) {
                 </div>
                 <div className="flex flex-wrap gap-4 mt-8">
                     {project.demo ? (
-                        <a href={project.demo} className="flex items-center gap-1 text-blue-600 font-medium hover:underline">
-                            <FiExternalLink /> Live Demo
+                        <a href={project.github} className="border-2 border-white px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-white/10 transition">
+                            <FiGithub /> GitHub
                         </a>
                     ) : ("")
                     }
-                    <a href={project.github} className="border-2 border-white px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-white/10 transition">
-                        <FiGithub /> GitHub
-                    </a>
+
                 </div>
             </div>
         </div>
