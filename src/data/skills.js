@@ -1,10 +1,10 @@
 export const technicalSkills = [
-    { id: 1, name: "HTML", level: 95 },
-    { id: 2, name: "CSS", level: 95 },
-    { id: 3, name: "JavaScript", level: 85 },
-    { id: 4, name: "React", level: 75 },
-    { id: 5, name: "Node.js", level: 80 },
-    { id: 6, name: "Python", level: 95 }
+    { _id: 1, name: "HTML", level: 95 },
+    { _id: 2, name: "CSS", level: 95 },
+    { _id: 3, name: "JavaScript", level: 85 },
+    { _id: 4, name: "React", level: 75 },
+    { _id: 5, name: "Node.js", level: 80 },
+    { _id: 6, name: "Python", level: 95 }
 ];
 
 export const tools = ["Git", "GitHub", "VS Code", "Figma", "npm", "MongoDB"];
