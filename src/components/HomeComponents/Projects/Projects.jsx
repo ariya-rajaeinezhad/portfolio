@@ -11,7 +11,7 @@ function Projects() {
             try {
                 const res = await fetch(`${API_URL}/api/projects`);
                 const data = await res.json();
-                // setProjects(data);
+                setProjects(data);
             } catch (error) {
                 console.error("error while reading data from backend", error);
                 setProjects(localProjects)
@@ -31,7 +31,7 @@ function Projects() {
                     <p className="text-blue-800 font-bold">Loading Projects...</p>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {localProjects.map((project, index) => (
+                        {projects.map((project, index) => (
                             <ProjectCard
                                 key={project._id}
                                 id={project._id}
