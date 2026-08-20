@@ -7,6 +7,6 @@ export const technicalSkills = [
     { _id: 6, name: "Python", level: 95 }
 ];
 
-export const tools = ["Git", "GitHub", "VS Code", "Figma", "npm", "MongoDB"];
+export const tools = [{ _id: 1, name: "Git" }, { _id: 2, name: "GitHub" }, "VS Code", "Figma", "npm", "MongoDB"];
 
 export const softSkills = ["Problem Solving", "Teamwork", "Communication", "Time Management", "Creativity"];
