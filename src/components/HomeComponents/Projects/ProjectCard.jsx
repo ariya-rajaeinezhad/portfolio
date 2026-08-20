@@ -36,9 +36,13 @@ function ProjectCard({ id, title, description, image, tags = [], github, demo, i
                         <a href={github} className="flex items-center gap-1 text-blue-600 font-medium hover:underline">
                             <FiGithub /> Code
                         </a>
-                        <a href={demo} className="flex items-center gap-1 text-blue-600 font-medium hover:underline">
-                            <FiExternalLink /> Live Demo
-                        </a>
+                        {demo ? (
+                            <a href={demo} className="flex items-center gap-1 text-blue-600 font-medium hover:underline">
+                                <FiExternalLink /> Live Demo
+                            </a>
+                        ) : ("")
+                        }
+
                     </div>
                     <Link to={`/project/${id}`} className="text-blue-600 font-medium hover:underline">
                         Details

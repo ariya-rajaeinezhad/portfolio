@@ -1,5 +1,6 @@
 import ProjectCard from "./ProjectCard";
 import { useState, useEffect } from "react";
+import { projects as localProjects } from "../../../data/projects";
 const API_URL = "http://localhost:5000"
 
 function Projects() {
@@ -10,9 +11,10 @@ function Projects() {
             try {
                 const res = await fetch(`${API_URL}/api/projects`);
                 const data = await res.json();
-                setProjects(data);
+                // setProjects(data);
             } catch (error) {
                 console.error("error while reading data from backend", error);
+                setProjects(localProjects)
             } finally {
                 setLoading(false);
             };
@@ -29,7 +31,7 @@ function Projects() {
                     <p className="text-blue-800 font-bold">Loading Projects...</p>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {projects.map((project, index) => (
+                        {localProjects.map((project, index) => (
                             <ProjectCard
                                 key={project._id}
                                 id={project._id}

@@ -17,9 +17,12 @@ function ProjectHero({ project }) {
                     <span className="bg-white/15 px-4 py-1.5 rounded-full text-sm">Status: {project.status}</span>
                 </div>
                 <div className="flex flex-wrap gap-4 mt-8">
-                    <a href={project.demo} className="bg-white text-blue-700 px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-blue-50 transition">
-                        <FiExternalLink /> Live Demo
-                    </a>
+                    {project.demo ? (
+                        <a href={project.demo} className="flex items-center gap-1 text-blue-600 font-medium hover:underline">
+                            <FiExternalLink /> Live Demo
+                        </a>
+                    ) : ("")
+                    }
                     <a href={project.github} className="border-2 border-white px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-white/10 transition">
                         <FiGithub /> GitHub
                     </a>

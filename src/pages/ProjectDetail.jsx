@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { projects as localProjects } from "../data/projects";
 
 import ProjectHero from "../components/ProjectDetailComponents/ProjectHero/ProjectHero";
 import ProjectAbout from "../components/ProjectDetailComponents/ProjectAbout/ProjectAbout";
@@ -23,6 +24,7 @@ function ProjectDetail() {
                 setProjects(data);
             } catch (error) {
                 console.error("error while reading file from backend", error);
+                setProjects(localProjects)
             } finally {
                 setLoading(false);
             }
