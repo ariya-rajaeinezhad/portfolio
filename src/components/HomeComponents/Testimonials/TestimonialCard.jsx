@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { FaQuoteLeft } from "react-icons/fa";
 import { useState, useEffect } from "react";
+import { testimonials as localTestimonials } from "../../../data/testimonials";
 const API_URL = "http://localhost:5000"
 
 function TestimonialCard() {
@@ -14,6 +15,7 @@ function TestimonialCard() {
                 setTestimonials(data);
             } catch (error) {
                 console.error("error while reading data from backend", error);
+                setTestimonials(localTestimonials);
             } finally {
                 setLoading(false);
             };

@@ -1,5 +1,6 @@
 import StatCard from "./StatCard";
 import { useState, useEffect } from "react";
+import { stats as localStats } from "../data/stats";
 const API_URL = "http://localhost:5000"
 
 function Stats() {
@@ -13,6 +14,7 @@ function Stats() {
                 setStats(data);
             } catch (error) {
                 console.error("error while reading data from backend", error);
+                setStats(localStats);
             } finally {
                 setLoading(false);
             };

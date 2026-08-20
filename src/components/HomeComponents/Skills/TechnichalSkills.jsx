@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import SkillBar from "./SkillBar";
+import { technicalSkills as localSkills } from "../../../data/skills";
 const API_URL = "http://localhost:5000"
 
 function TechnicalSkills() {
@@ -14,6 +15,7 @@ function TechnicalSkills() {
                 setTechnicalSkills(data.technicalSkills);
             } catch (error) {
                 console.error("error while reading data from backend", error);
+                setTechnicalSkills(localSkills);
             } finally {
                 setLoading(false);
             };

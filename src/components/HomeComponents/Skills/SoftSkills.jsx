@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { softSkills as localSkills } from "../../../data/skills";
 const API_URL = "http://localhost:5000"
 
 function SoftSkills() {
@@ -12,6 +13,7 @@ function SoftSkills() {
                 setSoftSkills(data.softSkills);
             } catch (error) {
                 console.error("error while reading data from backend", error);
+                setSoftSkills(localSkills);
             } finally {
                 setLoading(false);
             };

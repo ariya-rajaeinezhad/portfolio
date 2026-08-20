@@ -1,5 +1,6 @@
 import TimelineItem from "./TimelineItem";
 import { useState, useEffect } from "react";
+import { timeline as localTimeline } from "../../../data/timeline";
 const API_URL = "http://localhost:5000"
 
 function ResumeTimeline() {
@@ -13,6 +14,7 @@ function ResumeTimeline() {
                 setTimeline(data);
             } catch (error) {
                 console.error("error while reading data from backend", error);
+                setTimeline(localTimeline);
             } finally {
                 setLoading(false);
             };

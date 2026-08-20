@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { tools as localSkills } from "../../../data/skills";
 const API_URL = "http://localhost:5000"
 
 function ToolsSkills() {
@@ -12,6 +13,7 @@ function ToolsSkills() {
                 setToolsSkills(data.tools);
             } catch (error) {
                 console.error("error while reading data from backend", error);
+                setToolsSkills(localSkills)
             } finally {
                 setLoading(false);
             };

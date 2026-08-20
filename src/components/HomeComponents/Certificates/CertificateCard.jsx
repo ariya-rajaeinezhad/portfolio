@@ -1,6 +1,7 @@
 import { FaAward } from "react-icons/fa";
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
+import { certificates as localCertificates } from "../../../data/certificates";
 const API_URL = "http://localhost:5000"
 
 function CertificateCard() {
@@ -14,6 +15,7 @@ function CertificateCard() {
                 setCertificates(data);
             } catch (error) {
                 console.error("error while reading data from backend", error);
+                setCertificates(localCertificates);
             } finally {
                 setLoading(false);
             };
