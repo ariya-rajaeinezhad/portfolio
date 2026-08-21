@@ -38,8 +38,8 @@ export const projects = [
         duration: "3 weeks",
         year: "2026",
         status: "Completed",
-        fulldescription: "PASTE FULL TEXT HERE",
-        challenge: "PASTE FULL TEXT HERE",
+        fulldescription: "A full-featured task management application that allows users to add, complete, and delete tasks through a clean and intuitive interface. The application is built with a Node.js backend and a SQL database layer, demonstrating my ability to connect a frontend to a real data store. Key features include persistent task storage and filtering between active and completed tasks. Building this project strengthened my understanding of full-stack development, CRUD operations, and how to structure a complete application from the database all the way to the user interface.",
+        challenge: "The hardest part was keeping the UI in sync with the database. I solved it by refetching the task list after every change, which taught me how real full-stack data flow works.",
         tags: ["Node.js", "JavaScript", "HTML/CSS", "SQL"],
         features: [
             "Add, complete, and delete tasks",
@@ -65,8 +65,8 @@ export const projects = [
         duration: "2 weeks",
         year: "2026",
         status: "Completed",
-        fulldescription: "PASTE FULL TEXT HERE",
-        challenge: "PASTE FULL TEXT HERE",
+        fulldescription: "A cooperative Blackjack card game that brings the classic casino experience to the browser. The game implements the full rules of Blackjack, including turn-based gameplay, automatic score calculation, flexible ace handling, and win/loss detection. It was built with vanilla JavaScript, HTML, and CSS, focusing on clean game logic and dynamic DOM updates. This project sharpened my problem-solving skills and taught me how to translate real-world game rules into structured, reliable code.",
+        challenge: "Handling aces was tricky because they can count as 1 or 11. I wrote a scoring function that automatically picks the best value, which taught me to think carefully about edge cases.",
         tags: ["JavaScript", "HTML", "CSS"],
         features: [
             "Full Blackjack rules with flexible ace handling",
@@ -92,8 +92,8 @@ export const projects = [
         duration: "2 week",
         year: "2025",
         status: "Completed",
-        fulldescription: "PASTE FULL TEXT HERE",
-        challenge: "PASTE FULL TEXT HERE",
+        fulldescription: "A modern remake of the classic Snake game, developed in Python using the Pygame library. The game features smooth and responsive controls, real-time score tracking and collision detection. Building this project deepened my understanding of game loops, event handling, and object-oriented programming in Python, while also teaching me how to manage state and timing in a real-time application.",
+        challenge: "The snake kept responding one frame late to key presses. I learned about event queues and fixed it by processing input once per frame, which made the controls feel instant.",
         tags: ["Python", "Pygame"],
         features: [
             "Smooth, responsive keyboard controls",
