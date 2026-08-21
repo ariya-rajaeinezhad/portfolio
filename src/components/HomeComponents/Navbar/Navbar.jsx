@@ -20,7 +20,7 @@ function Navbar() {
                     </div>
                     <div>
                         <button className="main-color text-white p-2 px-3 rounded-4xl btn-resume hover:underline">
-                            <a href="#" className="flex items-center gap-1"><FiDownload />Download Resume</a>
+                            <a href="/Ariya-Rajaeinezhad-Resume.pdf" className="flex items-center gap-1"><FiDownload />Download Resume</a>
                         </button>
                     </div>
                 </section>
@@ -30,7 +30,7 @@ function Navbar() {
                     </div>
                     <div>
                         <button className="main-color text-white p-2 px-3 rounded-4xl btn-resume hover:underline">
-                            <a href="#" className="flex items-center gap-1"><FiDownload />Download Resume</a>
+                            <a href="/Ariya-Rajaeinezhad-Resume.pdf" className="flex items-center gap-1"><FiDownload />Download Resume</a>
                         </button>
                     </div>
                 </section>

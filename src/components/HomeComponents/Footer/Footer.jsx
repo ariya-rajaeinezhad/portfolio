@@ -24,18 +24,18 @@ function Footer() {
                     <div>
                         <h3 className="text-lg font-bold mb-4">Follow Me</h3>
                         <div className="flex gap-3">
-                            <a href="#" aria-label="GitHub" className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/25 hover:-translate-y-1 transition">
+                            <a href="https://github.com/ariya-rajaeinezhad" aria-label="GitHub" className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/25 hover:-translate-y-1 transition">
                                 <FaGithub />
                             </a>
-                            <a href="#" aria-label="LinkedIn" className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/25 hover:-translate-y-1 transition">
+                            <a href="https://www.linkedin.com/in/ariya-rajaei-nezhad-7a5b9142b/" aria-label="LinkedIn" className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/25 hover:-translate-y-1 transition">
                                 <FaLinkedinIn />
                             </a>
-                            <a href="#" aria-label="Instagram" className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/25 hover:-translate-y-1 transition">
+                            {/* <a href="#" aria-label="Instagram" className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/25 hover:-translate-y-1 transition">
                                 <FaInstagram />
                             </a>
                             <a href="#" aria-label="Telegram" className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/25 hover:-translate-y-1 transition">
                                 <FaTelegramPlane />
-                            </a>
+                            </a> */}
                         </div>
                     </div>
                 </div>

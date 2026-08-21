@@ -1,15 +1,34 @@
-import { useState } from "react";
-import { HiXMark, HiInformationCircle, HiArrowRight } from "react-icons/hi2";
+import { useState, useRef, useEffect } from "react";
+import { HiXMark } from "react-icons/hi2";
 import { TiThMenu } from "react-icons/ti";
 import { FiDownload } from "react-icons/fi";
 
 function TopDrawer() {
     const [isOpen, setIsOpen] = useState(false);
+    const drawerRef = useRef(null);
+    const buttonRef = useRef(null);
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (
+                drawerRef.current && !drawerRef.current.contains(event.target) &&
+                buttonRef.current && !buttonRef.current.contains(event.target)
+            ) {
+                setIsOpen(false);
+            }
+        }
 
+        if (isOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isOpen]);
     return (
         <>
             <div className="text-center flex items-center justify-center">
                 <button
+                    ref={buttonRef}
                     onClick={() => setIsOpen(true)}
                     className="inline-flex items-center justify-center font-bold rounded-lg text-[30px] hover:text-blue-400"
                     type="button"
@@ -18,6 +37,7 @@ function TopDrawer() {
                 </button>
             </div>
             <div
+                ref={drawerRef}
                 className={`fixed top-0 left-0 right-0 z-40 w-full p-4 transition-transform duration-300 bg-white border-b border-gray-200 shadow-lg ${isOpen ? "translate-y-0" : "-translate-y-full"
                     }`}
                 tabIndex="-1"
