@@ -14,7 +14,7 @@ function AboutCard() {
         {
             id: 2,
             icon: MdEmail,
-            label: "a.rajaeenezhad@gmail.com"
+            label: "aryarajaeinezhad@gmail.com"
         },
         {
             id: 3,

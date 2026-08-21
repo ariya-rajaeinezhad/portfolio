@@ -16,7 +16,7 @@ function ContactInfo() {
                 <span className="h-12 w-12 rounded-full bg-blue-300 text-white flex items-center justify-center text-xl"><MdEmail /></span>
                 <div>
                     <p className="font-bold text-slate-800">Email</p>
-                    <p className="text-slate-600">a.rajaeenezhad@gmail.com</p>
+                    <p className="text-slate-600">aryarajaeinezhad@gmail.com</p>
                 </div>
             </div>
             <div className="flex items-center gap-4 p-2 bg-blue-100 rounded-4xl">

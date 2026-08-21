@@ -21,13 +21,13 @@ function ContactModal({ isOpen, onClose }) {
                 <h3 className="text-2xl font-bold text-slate-800 mb-6">Get In Touch</h3>
 
                 <a
-                    href="mailto:a.rajaeenezhad@gmail.com"
+                    href="mailto:aryarajaeinezhad@gmail.com"
                     className="flex items-center gap-4 p-4 bg-slate-50 rounded-xl hover:bg-blue-50 transition mb-3"
                 >
                     <FiMail className="text-blue-600" size={22} />
                     <div>
                         <p className="text-sm text-slate-500">Email</p>
-                        <p className="text-slate-800 font-medium">a.rajaeenezhad@gmail.com</p>
+                        <p className="text-slate-800 font-medium">aryarajaeinezhad@gmail.com</p>
                     </div>
                 </a>
                 <a
