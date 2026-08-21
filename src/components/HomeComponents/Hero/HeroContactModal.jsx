@@ -21,7 +21,7 @@ function ContactModal({ isOpen, onClose }) {
                 <h3 className="text-2xl font-bold text-slate-800 mb-6">Get In Touch</h3>
 
                 <a
-                    href="mailto:YOUR_EMAIL@example.com"
+                    href="mailto:a.rajaeenezhad@gmail.com"
                     className="flex items-center gap-4 p-4 bg-slate-50 rounded-xl hover:bg-blue-50 transition mb-3"
                 >
                     <FiMail className="text-blue-600" size={22} />
@@ -31,7 +31,7 @@ function ContactModal({ isOpen, onClose }) {
                     </div>
                 </a>
                 <a
-                    href="tel:+98YOURNUMBER"
+                    href="tel:+989019244618"
                     className="flex items-center gap-4 p-4 bg-slate-50 rounded-xl hover:bg-blue-50 transition"
                 >
                     <FiPhone className="text-blue-600" size={22} />
