@@ -79,7 +79,7 @@ function TopDrawer() {
                 </div>
                 <div className="flex items-center gap-4 py-5 px-3">
                     <button className="main-color text-white p-2 px-3 rounded-lg btn-resume hover:underline">
-                        <a href="#" className="flex items-center gap-1"><FiDownload />Download Resume</a>
+                        <a href="/Ariya-Rajaeinezhad-Resume.pdf" className="flex items-center gap-1"><FiDownload />Download Resume</a>
                     </button>
                 </div>
             </div>
