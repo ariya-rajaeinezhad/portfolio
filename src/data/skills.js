@@ -4,7 +4,9 @@ export const technicalSkills = [
     { _id: 3, name: "JavaScript", level: 75 },
     { _id: 4, name: "React", level: 70 },
     { _id: 5, name: "Node.js", level: 70 },
-    { _id: 6, name: "Python", level: 80 }
+    { _id: 6, name: "Python", level: 80 },
+    { _id: 7, name: "Prompt Engineering", level: 60 },
+    { _id: 8, name: "Agentic Systems", level: 60 }
 ];
 
 export const tools = [

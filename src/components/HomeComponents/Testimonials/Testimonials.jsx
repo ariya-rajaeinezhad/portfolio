@@ -1,12 +1,19 @@
 import TestimonialCard from "./TestimonialCard";
+import { motion } from "motion/react";
 
 function Testimonials() {
     return (
-        <section id="testimonials" className="py-15 px-6 bg-slate-50 mx-2 rounded-b-3xl">
+        <section id="testimonials" className="py-20 px-6">
             <div className="container mx-auto max-w-6xl">
-                <h2 className="text-5xl font-bold text-center text-slate-800 mb-12">
+                <motion.h2
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="text-5xl md:text-6xl font-bold text-center mb-12 main-color-text"
+                >
                     What People Say?
-                </h2>
+                </motion.h2>
                 <TestimonialCard />
             </div>
         </section>

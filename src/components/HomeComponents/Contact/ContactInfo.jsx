@@ -10,31 +10,37 @@ function ContactInfo() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 flex flex-col justify-center gap-6"
+            className="dark-card p-8 rounded-2xl flex flex-col justify-center gap-6"
         >
-            <div className="flex items-center gap-4 p-2 bg-blue-100 rounded-4xl">
-                <span className="h-12 w-12 rounded-full bg-blue-300 text-white flex items-center justify-center text-xl"><MdEmail /></span>
+            <div className="flex items-center gap-4 p-4 bg-black rounded-2xl border border-zinc-800">
+                <span className="h-12 w-12 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xl border border-indigo-500/30">
+                    <MdEmail />
+                </span>
                 <div>
-                    <p className="font-bold text-slate-800">Email</p>
-                    <p className="text-slate-600">aryarajaeinezhad@gmail.com</p>
+                    <p className="font-bold text-white">Email</p>
+                    <p className="text-gray-400">aryarajaeinezhad@gmail.com</p>
                 </div>
             </div>
-            <div className="flex items-center gap-4 p-2 bg-blue-100 rounded-4xl">
-                <span className="h-12 w-12 rounded-full bg-blue-300 text-white flex items-center justify-center text-xl"><FaPhone /></span>
+            <div className="flex items-center gap-4 p-4 bg-black rounded-2xl border border-zinc-800">
+                <span className="h-12 w-12 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xl border border-indigo-500/30">
+                    <FaPhone />
+                </span>
                 <div>
-                    <p className="font-bold text-slate-800">Phone</p>
-                    <p className="text-slate-600">+98 901 924 4618</p>
+                    <p className="font-bold text-white">Phone</p>
+                    <p className="text-gray-400">+98 901 924 4618</p>
                 </div>
             </div>
-            <div className="flex items-center gap-4 p-2 bg-blue-100 rounded-4xl">
-                <span className="h-12 w-12 rounded-full bg-blue-300 text-white flex items-center justify-center text-xl"><TiLocation /></span>
+            <div className="flex items-center gap-4 p-4 bg-black rounded-2xl border border-zinc-800">
+                <span className="h-12 w-12 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xl border border-indigo-500/30">
+                    <TiLocation />
+                </span>
                 <div>
-                    <p className="font-bold text-slate-800">Location</p>
-                    <p className="text-slate-600">Shiraz, Iran</p>
+                    <p className="font-bold text-white">Location</p>
+                    <p className="text-gray-400">Shiraz, Iran</p>
                 </div>
             </div>
         </motion.div>
     );
-};
+}
 
 export default ContactInfo;
