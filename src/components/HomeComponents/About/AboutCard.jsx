@@ -13,7 +13,7 @@ function AboutCard() {
     ];
 
     return (
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-20">
             {info.map((item, index) => {
                 const Icon = item.icon;
                 return (
@@ -24,11 +24,11 @@ function AboutCard() {
                         viewport={{ once: true, amount: 0.5 }}
                         transition={{ duration: 0.6, delay: index * 0.1 }}
                         whileHover={{ y: -8, scale: 1.03 }}
-                        className="dark-card p-6 rounded-2xl card-hover"
+                        className="dark-card px-2 py-4 rounded-2xl card-hover md:w-[300px]"
                     >
-                        <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30">
-                                <Icon className="text-2xl text-indigo-400" />
+                        <div className="flex items-center gap-3">
+                            <div className="p-2 rounded-full bg-indigo-500/20 flex items-center justify-center  border border-indigo-500/30">
+                                <Icon className="text-xl text-indigo-400" />
                             </div>
                             <p className="text-white font-semibold text-sm md:text-base">{item.label}</p>
                         </div>
