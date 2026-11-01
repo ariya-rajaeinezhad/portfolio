@@ -1,3 +1,4 @@
+
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef, useState, useEffect } from "react";
 import AboutCard from "./AboutCard";
@@ -6,13 +7,13 @@ import { FiBookOpen } from "react-icons/fi";
 function About() {
     const notebookRef = useRef(null);
 
-    // Desktop-only scroll progress (used only on desktop)
+    // Desktop-only scroll progress
     const { scrollYProgress } = useScroll({
         target: notebookRef,
         offset: ["start 75%", "start 35%"],
     });
 
-    // ===== Mobile detection =====
+    // Mobile detection
     const [isMobile, setIsMobile] = useState(
         typeof window !== "undefined" ? window.innerWidth < 768 : false
     );
@@ -20,27 +21,32 @@ function About() {
 
     useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth < 768);
+
         checkMobile();
         window.addEventListener("resize", checkMobile);
+
         return () => window.removeEventListener("resize", checkMobile);
     }, []);
 
-    // ===== DESKTOP ONLY: CINEMATIC SCROLL ANIMATION =====
+    // DESKTOP ONLY: CINEMATIC SCROLL ANIMATION
     const rotateY = useTransform(
         scrollYProgress,
         [0, 0.15, 0.3, 0.5, 0.75, 1.0],
         [0, 0, -20, -70, -140, -178]
     );
+
     const liftZ = useTransform(
         scrollYProgress,
         [0, 0.15, 0.3, 0.5, 0.75, 1.0],
         [0, 0, 25, 45, 20, 0]
     );
+
     const bendX = useTransform(
         scrollYProgress,
         [0, 0.15, 0.3, 0.5, 0.75, 1.0],
         [0, 0, -2, -3, -1, 0]
     );
+
     const coverShadow = useTransform(
         scrollYProgress,
         [0, 0.15, 0.3, 0.5, 0.75, 1.0],
@@ -53,10 +59,31 @@ function About() {
             "0 5px 20px rgba(0,0,0,0.5), inset 0 0 60px rgba(0,0,0,0.4)",
         ]
     );
-    const pagesOpacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
-    const pagesScale = useTransform(scrollYProgress, [0.2, 0.5], [0.96, 1]);
-    const titleFade = useTransform(scrollYProgress, [0.1, 0.3], [1, 0]);
-    const titleScale = useTransform(scrollYProgress, [0.1, 0.3], [1, 0.88]);
+
+    const pagesOpacity = useTransform(
+        scrollYProgress,
+        [0.2, 0.5],
+        [0, 1]
+    );
+
+    const pagesScale = useTransform(
+        scrollYProgress,
+        [0.2, 0.5],
+        [0.96, 1]
+    );
+
+    const titleFade = useTransform(
+        scrollYProgress,
+        [0.1, 0.3],
+        [1, 0]
+    );
+
+    const titleScale = useTransform(
+        scrollYProgress,
+        [0.1, 0.3],
+        [1, 0.88]
+    );
+
     const coverGlow = useTransform(
         scrollYProgress,
         [0, 0.1, 0.2, 0.3],
@@ -68,21 +95,28 @@ function About() {
         ]
     );
 
-    // Unified toggle function for mobile
+    // Mobile notebook toggle
     const handleToggleOpen = () => {
-        if (isMobile) setIsOpen((prev) => !prev);
+        if (isMobile) {
+            setIsOpen((prev) => !prev);
+        }
     };
 
-    // Inline paper texture style
+    // Paper texture
     const paperStyle = {
         backgroundImage: `linear-gradient(135deg, #faf5e4 0%, #f5ecd0 100%), repeating-linear-gradient(transparent, transparent 27px, rgba(99, 102, 241, 0.08) 27px, rgba(99, 102, 241, 0.08) 28px)`,
     };
 
     return (
-        <section id="about" className="py-20 px-6 relative overflow-hidden">
+        <section
+            id="about"
+            className="py-20 px-6 relative overflow-hidden"
+        >
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-indigo-600 rounded-full mix-blend-screen filter blur-[180px] opacity-15 pointer-events-none" />
 
             <div className="container mx-auto max-w-6xl relative z-10">
+
+                {/* SECTION TITLE */}
                 <motion.h2
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -93,17 +127,24 @@ function About() {
                     About Me
                 </motion.h2>
 
-                {/* Desktop instruction */}
+                {/* DESKTOP INSTRUCTION */}
                 {!isMobile && (
                     <motion.p
                         initial={{ opacity: 1 }}
                         className="text-center text-gray-400 mb-16 flex items-center justify-center gap-2"
                     >
                         <FiBookOpen className="text-indigo-400" />
-                        <span>Scroll down slowly to open the notebook</span>
+
+                        <span>
+                            Scroll down slowly to open the notebook
+                        </span>
+
                         <motion.span
                             animate={{ y: [0, 6, 0] }}
-                            transition={{ duration: 1.5, repeat: Infinity }}
+                            transition={{
+                                duration: 1.5,
+                                repeat: Infinity,
+                            }}
                             className="inline-block"
                         >
                             ↓
@@ -111,7 +152,7 @@ function About() {
                     </motion.p>
                 )}
 
-                {/* Mobile instruction — click only */}
+                {/* MOBILE INSTRUCTION */}
                 {isMobile && (
                     <motion.p
                         initial={{ opacity: 0 }}
@@ -119,6 +160,7 @@ function About() {
                         className="text-center text-gray-400 mb-8 flex items-center justify-center gap-2"
                     >
                         <FiBookOpen className="text-indigo-400" />
+
                         <span>
                             {isOpen
                                 ? "Tap the notebook to close"
@@ -127,12 +169,14 @@ function About() {
                     </motion.p>
                 )}
 
+                {/* NOTEBOOK CONTAINER */}
                 <div
                     ref={notebookRef}
                     className="mx-auto"
                     style={{
                         maxWidth: isMobile ? "100%" : "950px",
                         perspective: "2500px",
+                        WebkitPerspective: "2500px",
                         perspectiveOrigin: "center center",
                     }}
                 >
@@ -141,8 +185,13 @@ function About() {
                         style={{
                             width: "100%",
                             aspectRatio: isMobile ? "3 / 4.5" : "16 / 10",
+
+                            // FIX: Explicit 3D stacking context
+                            transformStyle: "preserve-3d",
+                            WebkitTransformStyle: "preserve-3d",
                         }}
                     >
+
                         {/* BACK COVER */}
                         <div
                             className="absolute top-0 left-0 w-full h-full rounded-lg"
@@ -155,22 +204,39 @@ function About() {
                             }}
                         />
 
-                        {/* ===== PAGES CONTAINER ===== */}
+                        {/* PAGES CONTAINER */}
                         <motion.div
-                            onClick={isMobile ? handleToggleOpen : undefined} // ✅ FIX: Allows clicking pages to close on mobile
+                            onClick={isMobile ? handleToggleOpen : undefined}
                             style={{
-                                opacity: isMobile ? (isOpen ? 1 : 0) : pagesOpacity,
-                                scale: isMobile ? (isOpen ? 1 : 0.96) : pagesScale,
+                                opacity: isMobile
+                                    ? (isOpen ? 1 : 0)
+                                    : pagesOpacity,
+
+                                scale: isMobile
+                                    ? (isOpen ? 1 : 0.96)
+                                    : pagesScale,
+
                                 zIndex: 10,
-                                pointerEvents: "auto", // ✅ FIX: Always allow interaction
+
+                                // FIX: Pages receive touches only when open
+                                pointerEvents: isMobile
+                                    ? (isOpen ? "auto" : "none")
+                                    : "auto",
+
+                                transformStyle: "preserve-3d",
+                                WebkitTransformStyle: "preserve-3d",
                             }}
-                            className={`absolute top-0 left-0 w-full h-full rounded-md overflow-hidden ${isMobile ? "cursor-pointer" : ""}`}
+                            className={`absolute top-0 left-0 w-full h-full rounded-md overflow-hidden ${isMobile ? "cursor-pointer" : ""
+                                }`}
                         >
                             <div
-                                className={`w-full h-full ${isMobile ? "grid grid-rows-2" : "grid grid-cols-2"
+                                className={`w-full h-full ${isMobile
+                                        ? "grid grid-rows-2"
+                                        : "grid grid-cols-2"
                                     }`}
                             >
-                                {/* TOP PAGE (mobile) / LEFT PAGE (desktop) */}
+
+                                {/* TOP PAGE / LEFT PAGE */}
                                 <div
                                     className={`notebook-page bg-[#faf5e4] h-full flex flex-col items-center justify-center relative overflow-hidden ${isMobile ? "p-3" : "p-6 md:p-10"
                                         }`}
@@ -179,23 +245,35 @@ function About() {
                                     <div className="absolute hidden md:block md:top-4 md:left-12 md:text-xs text-indigo-600/60 font-mono tracking-widest">
                                         Chapter 01
                                     </div>
+
                                     <motion.div
-                                        initial={{ opacity: 0, scale: 0.9 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        initial={{
+                                            opacity: 0,
+                                            scale: 0.9,
+                                        }}
+                                        whileInView={{
+                                            opacity: 1,
+                                            scale: 1,
+                                        }}
                                         viewport={{ once: true }}
-                                        transition={{ duration: 0.8, delay: 0.3 }}
+                                        transition={{
+                                            duration: 0.8,
+                                            delay: 0.3,
+                                        }}
                                         className={`relative aspect-square ${isMobile
-                                            ? "w-full max-w-[120px]"
-                                            : "w-full max-w-[200px] md:max-w-[280px]"
+                                                ? "w-full max-w-[120px]"
+                                                : "w-full max-w-[200px] md:max-w-[280px]"
                                             }`}
                                     >
                                         <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg transform rotate-3 opacity-30 blur-xl" />
+
                                         <img
-                                            src="/images/avatar.png"
+                                            src="/images/avatar-3.jpg"
                                             alt="Ariya Rajaei Nezhad"
                                             className="relative w-full h-full object-cover rounded-lg shadow-xl"
                                         />
                                     </motion.div>
+
                                     <div
                                         className={`${isMobile ? "mt-2" : "mt-3 md:mt-6"
                                             } text-center`}
@@ -203,42 +281,57 @@ function About() {
                                         <p className="text-zinc-800 font-serif italic text-[10px] md:text-sm">
                                             "Ariya Rajaei Nezhad"
                                         </p>
+
                                         <p className="text-zinc-600 text-[8px] md:text-xs mt-1 font-mono">
                                             Shiraz, Iran • 2026
                                         </p>
                                     </div>
+
                                     <div className="absolute hidden md:block md:bottom-3 md:left-1/2 md:-translate-x-1/2 md:text-xs text-zinc-500 font-mono">
                                         — 1 —
                                     </div>
                                 </div>
 
-                                {/* BOTTOM PAGE (mobile) / RIGHT PAGE (desktop) */}
+                                {/* BOTTOM PAGE / RIGHT PAGE */}
                                 <div
-                                    className={`notebook-page bg-[#faf5e4] h-full flex flex-col justify-center relative overflow-hidden ${isMobile ? "p-3 pl-5" : "p-6 md:p-10 pl-6 md:pl-10"
+                                    className={`notebook-page bg-[#faf5e4] h-full flex flex-col justify-center relative overflow-hidden ${isMobile
+                                            ? "p-3 pl-5"
+                                            : "p-6 md:p-10 pl-6 md:pl-10"
                                         }`}
                                     style={paperStyle}
                                 >
                                     <div className="absolute hidden md:block md:top-4 md:right-6 md:text-xs text-indigo-600/60 font-mono tracking-widest">
                                         Page 01
                                     </div>
+
                                     <motion.div
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
+                                        initial={{
+                                            opacity: 0,
+                                            y: 20,
+                                        }}
+                                        whileInView={{
+                                            opacity: 1,
+                                            y: 0,
+                                        }}
                                         viewport={{ once: true }}
-                                        transition={{ duration: 0.8, delay: 0.4 }}
+                                        transition={{
+                                            duration: 0.8,
+                                            delay: 0.4,
+                                        }}
                                     >
                                         <h3
                                             className={`font-bold text-zinc-900 font-serif ${isMobile
-                                                ? "text-sm mb-2"
-                                                : "text-xl md:text-3xl mb-3 md:mb-4"
+                                                    ? "text-sm mb-2"
+                                                    : "text-xl md:text-3xl mb-3 md:mb-4"
                                                 }`}
                                         >
                                             More About Me
                                         </h3>
+
                                         <div
                                             className={`text-zinc-700 leading-relaxed text-justify font-serif ${isMobile
-                                                ? "text-[9px] space-y-1.5"
-                                                : "text-xs md:text-base space-y-3"
+                                                    ? "text-[9px] space-y-1.5"
+                                                    : "text-xs md:text-base space-y-3"
                                                 }`}
                                         >
                                             <p>
@@ -251,6 +344,7 @@ function About() {
                                                 building things from scratch and turning ideas into
                                                 working software.
                                             </p>
+
                                             <p className="hidden md:block">
                                                 What drives me most is the challenge of solving complex
                                                 problems and the satisfaction of seeing a project come to
@@ -258,6 +352,7 @@ function About() {
                                                 years old, fascinated by how computers work and eager to
                                                 write my first lines of code.
                                             </p>
+
                                             <p>
                                                 My goal is to become an{" "}
                                                 <span className="font-bold text-indigo-700">
@@ -267,18 +362,24 @@ function About() {
                                                 step closer to that dream.
                                             </p>
                                         </div>
+
                                         <div
-                                            className={`${isMobile ? "mt-2 pt-1" : "mt-4 md:mt-6 pt-3 md:pt-4"
+                                            className={`${isMobile
+                                                    ? "mt-2 pt-1"
+                                                    : "mt-4 md:mt-6 pt-3 md:pt-4"
                                                 } border-t border-zinc-300`}
                                         >
                                             <p
-                                                className={`text-zinc-500 italic font-serif ${isMobile ? "text-[8px]" : "text-[10px] md:text-xs"
+                                                className={`text-zinc-500 italic font-serif ${isMobile
+                                                        ? "text-[8px]"
+                                                        : "text-[10px] md:text-xs"
                                                     }`}
                                             >
                                                 — Written with passion, coded with purpose.
                                             </p>
                                         </div>
                                     </motion.div>
+
                                     <div className="absolute hidden md:block md:bottom-3 md:left-1/2 md:-translate-x-1/2 md:text-xs text-zinc-500 font-mono">
                                         — 2 —
                                     </div>
@@ -290,8 +391,10 @@ function About() {
                                         className="absolute left-0 right-0 top-1/2 -translate-y-1/2 pointer-events-none z-15"
                                         style={{
                                             height: "20px",
+
                                             background:
                                                 "linear-gradient(180deg, transparent 0%, rgba(139,92,42,0.15) 20%, rgba(139,92,42,0.35) 45%, rgba(0,0,0,0.5) 50%, rgba(139,92,42,0.35) 55%, rgba(139,92,42,0.15) 80%, transparent 100%)",
+
                                             boxShadow:
                                                 "inset 0 3px 6px rgba(0,0,0,0.3), inset 0 -3px 6px rgba(0,0,0,0.3), 0 0 15px rgba(0,0,0,0.2)",
                                         }}
@@ -309,8 +412,10 @@ function About() {
                                         className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 pointer-events-none z-15"
                                         style={{
                                             width: "40px",
+
                                             background:
                                                 "linear-gradient(90deg, transparent 0%, rgba(139,92,42,0.15) 20%, rgba(139,92,42,0.35) 45%, rgba(0,0,0,0.5) 50%, rgba(139,92,42,0.35) 55%, rgba(139,92,42,0.15) 80%, transparent 100%)",
+
                                             boxShadow:
                                                 "inset 4px 0 8px rgba(0,0,0,0.3), inset -4px 0 8px rgba(0,0,0,0.3), 0 0 20px rgba(0,0,0,0.2)",
                                         }}
@@ -327,7 +432,7 @@ function About() {
                             </div>
                         </motion.div>
 
-                        {/* ===== FRONT COVER ===== */}
+                        {/* FRONT COVER */}
                         {isMobile ? (
                             <motion.div
                                 onClick={handleToggleOpen}
@@ -340,10 +445,20 @@ function About() {
                                 }}
                                 style={{
                                     transformStyle: "preserve-3d",
+                                    WebkitTransformStyle: "preserve-3d",
+
                                     transformOrigin: "top center",
+                                    WebkitTransformOrigin: "top center",
+
                                     backfaceVisibility: "hidden",
+                                    WebkitBackfaceVisibility: "hidden",
+
                                     zIndex: 20,
-                                    pointerEvents: "auto", // ✅ FIX: Always "auto" so it can ALWAYS be clicked to open/close
+
+                                    // FIX: Do not let the rotated cover
+                                    // intercept touches while notebook is open.
+                                    pointerEvents: isOpen ? "none" : "auto",
+
                                     background:
                                         "linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 30%, #1a1a1a 60%, #0a0a0a 100%)",
                                 }}
@@ -352,9 +467,12 @@ function About() {
                                 <div
                                     className="absolute inset-0 rounded-lg opacity-40 pointer-events-none"
                                     style={{
-                                        backgroundImage: `radial-gradient(circle at 20% 30%, rgba(99,102,241,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(99,102,241,0.1) 0%, transparent 50%)`,
+                                        backgroundImage:
+                                            `radial-gradient(circle at 20% 30%, rgba(99,102,241,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(99,102,241,0.1) 0%, transparent 50%)`,
                                     }}
                                 />
+
+                                {/* TOP RINGS */}
                                 <div className="absolute top-0 left-0 right-0 h-6 flex flex-row justify-around px-8 z-20 bg-gradient-to-b from-black via-zinc-900 to-transparent">
                                     {[...Array(6)].map((_, i) => (
                                         <div
@@ -367,6 +485,8 @@ function About() {
                                         />
                                     ))}
                                 </div>
+
+                                {/* COVER CONTENT */}
                                 <motion.div
                                     animate={{
                                         opacity: isOpen ? 0 : 1,
@@ -382,23 +502,28 @@ function About() {
                                         <div
                                             className="w-16 h-16 rounded-full border-2 border-indigo-500/50 flex items-center justify-center"
                                             style={{
-                                                boxShadow: "0 0 40px rgba(99,102,241,0.4)",
+                                                boxShadow:
+                                                    "0 0 40px rgba(99,102,241,0.4)",
                                             }}
                                         >
                                             <FiBookOpen className="text-3xl text-indigo-400" />
                                         </div>
                                     </div>
+
                                     <h3 className="text-3xl md:text-4xl font-bold main-color-text mb-3 tracking-wider font-serif">
                                         ABOUT ME
                                     </h3>
+
                                     <div className="flex items-center justify-center gap-3 mb-3">
                                         <div className="w-10 h-px bg-gradient-to-r from-transparent to-indigo-500" />
                                         <div className="w-2 h-2 rounded-full bg-indigo-500" />
                                         <div className="w-10 h-px bg-gradient-to-l from-transparent to-indigo-500" />
                                     </div>
+
                                     <p className="text-gray-400 text-xs tracking-[0.3em] uppercase">
                                         The Story of a Developer
                                     </p>
+
                                     <motion.div
                                         animate={{
                                             y: [0, 8, 0],
@@ -412,26 +537,36 @@ function About() {
                                         className="mt-8 flex flex-col items-center gap-2"
                                     >
                                         <div className="w-10 h-10 rounded-full border-2 border-indigo-400 flex items-center justify-center">
-                                            <span className="text-indigo-400 text-xl">↓</span>
+                                            <span className="text-indigo-400 text-xl">
+                                                ↓
+                                            </span>
                                         </div>
+
                                         <span className="text-indigo-400 text-sm font-bold tracking-widest uppercase">
                                             Tap me
                                         </span>
                                     </motion.div>
                                 </motion.div>
+
+                                {/* CORNER DECORATIONS */}
                                 <div className="absolute top-8 left-4 w-8 h-8 border-t-2 border-l-2 border-indigo-500/40" />
                                 <div className="absolute top-8 right-4 w-8 h-8 border-t-2 border-r-2 border-indigo-500/40" />
                                 <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-indigo-500/40" />
                                 <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-indigo-500/40" />
+
+                                {/* BOOKMARK */}
                                 <div
                                     className="absolute -right-2 top-1/3 w-4 h-20 shadow-lg"
                                     style={{
                                         background:
                                             "linear-gradient(180deg, #4f46e5 0%, #7c3aed 50%, #4f46e5 100%)",
+
                                         clipPath:
                                             "polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%)",
                                     }}
                                 />
+
+                                {/* COVER SHADOW */}
                                 <div
                                     className="absolute inset-0 rounded-lg pointer-events-none"
                                     style={{
@@ -441,15 +576,22 @@ function About() {
                                 />
                             </motion.div>
                         ) : (
+
+                            /* DESKTOP FRONT COVER */
                             <motion.div
                                 style={{
                                     rotateY: rotateY,
                                     rotateX: bendX,
                                     translateZ: liftZ,
+
                                     boxShadow: coverShadow,
+
                                     transformStyle: "preserve-3d",
+
                                     transformOrigin: "left center",
+
                                     zIndex: 20,
+
                                     background:
                                         "linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 30%, #1a1a1a 60%, #0a0a0a 100%)",
                                 }}
@@ -458,9 +600,12 @@ function About() {
                                 <div
                                     className="absolute inset-0 rounded-lg opacity-40 pointer-events-none"
                                     style={{
-                                        backgroundImage: `radial-gradient(circle at 20% 30%, rgba(99,102,241,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(99,102,241,0.1) 0%, transparent 50%)`,
+                                        backgroundImage:
+                                            `radial-gradient(circle at 20% 30%, rgba(99,102,241,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(99,102,241,0.1) 0%, transparent 50%)`,
                                     }}
                                 />
+
+                                {/* DESKTOP RINGS */}
                                 <div className="absolute left-0 top-0 bottom-0 w-6 flex flex-col justify-around py-8 z-20 bg-gradient-to-r from-black via-zinc-900 to-transparent">
                                     {[...Array(8)].map((_, i) => (
                                         <div
@@ -473,46 +618,64 @@ function About() {
                                         />
                                     ))}
                                 </div>
+
+                                {/* DESKTOP COVER CONTENT */}
                                 <motion.div
-                                    style={{ opacity: titleFade, scale: titleScale }}
+                                    style={{
+                                        opacity: titleFade,
+                                        scale: titleScale,
+                                    }}
                                     className="text-center px-8 relative z-10"
                                 >
                                     <div className="mb-6 flex justify-center">
                                         <div
                                             className="w-20 h-20 rounded-full border-2 border-indigo-500/50 flex items-center justify-center"
-                                            style={{ boxShadow: coverGlow }}
+                                            style={{
+                                                boxShadow: coverGlow,
+                                            }}
                                         >
                                             <FiBookOpen className="text-4xl text-indigo-400" />
                                         </div>
                                     </div>
+
                                     <h3 className="text-4xl md:text-6xl font-bold main-color-text mb-4 tracking-wider font-serif">
                                         ABOUT ME
                                     </h3>
+
                                     <div className="flex items-center justify-center gap-3 mb-4">
                                         <div className="w-12 h-px bg-gradient-to-r from-transparent to-indigo-500" />
                                         <div className="w-2 h-2 rounded-full bg-indigo-500" />
                                         <div className="w-12 h-px bg-gradient-to-l from-transparent to-indigo-500" />
                                     </div>
+
                                     <p className="text-gray-400 text-sm md:text-base tracking-[0.3em] uppercase">
                                         The Story of a Developer
                                     </p>
+
                                     <p className="text-gray-600 text-xs mt-6 tracking-widest font-mono">
                                         — ARIYA RAJAIE NEZHAD —
                                     </p>
                                 </motion.div>
+
+                                {/* DESKTOP CORNER DECORATIONS */}
                                 <div className="absolute top-4 left-10 w-10 h-10 border-t-2 border-l-2 border-indigo-500/40" />
                                 <div className="absolute top-4 right-4 w-10 h-10 border-t-2 border-r-2 border-indigo-500/40" />
                                 <div className="absolute bottom-4 left-10 w-10 h-10 border-b-2 border-l-2 border-indigo-500/40" />
                                 <div className="absolute bottom-4 right-4 w-10 h-10 border-b-2 border-r-2 border-indigo-500/40" />
+
+                                {/* DESKTOP BOOKMARK */}
                                 <div
                                     className="absolute -right-2 top-1/3 w-5 h-24 shadow-lg"
                                     style={{
                                         background:
                                             "linear-gradient(180deg, #4f46e5 0%, #7c3aed 50%, #4f46e5 100%)",
+
                                         clipPath:
                                             "polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%)",
                                     }}
                                 />
+
+                                {/* DESKTOP COVER SHADOW */}
                                 <div
                                     className="absolute inset-0 rounded-lg pointer-events-none"
                                     style={{
@@ -525,9 +688,11 @@ function About() {
                     </div>
                 </div>
 
+                {/* ABOUT CARD */}
                 <div className="mt-20">
                     <AboutCard />
                 </div>
+
             </div>
         </section>
     );

@@ -46,7 +46,7 @@ function Hero() {
                     >
                         <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 p-1 animate-glow">
                             <img
-                                src="/images/avatar.png"
+                                src="/images/avatar-3.jpg"
                                 alt="Ariya Rajaei Nezhad"
                                 className="w-full h-full rounded-full object-cover"
                             />
