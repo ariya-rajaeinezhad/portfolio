@@ -1,5 +1,35 @@
 export const projects = [
     {
+        _id: "6a8584d67b4ba4c465cda45b",
+        title: "AI Management Agent",
+        tagline: "A bilingual AI system that generates comprehensive management reports.",
+        description: "A full-stack AI application that analyzes management topics in Persian or English and generates structured, professional reports.",
+        image: "/images/projects/management-agent.png",
+        github: "https://github.com/ariya-rajaeinezhad/Management-Agent",
+        role: "Full-Stack Developer & AI Integration Specialist",
+        duration: "4 weeks",
+        year: "2026",
+        status: "Completed",
+        fulldescription: "A bilingual (Persian/English) AI-powered system that generates comprehensive, structured management reports based on the four fundamental functions of management: Planning, Organizing, Leading, and Controlling. Originally developed for a university Management Principles course, this project bridges classical management theory with modern AI engineering. It features a stunning ocean-themed UI with glassmorphism, seamless language switching with full RTL support, and smart currency handling (Iranian Toman for Persian, USD for English). The backend is a robust FastAPI application with Pydantic validation, automatic retry logic, and a local SQLite database for report archiving, while the frontend is a highly responsive React application built with Vite and Tailwind CSS v4.",
+        challenge: "The biggest challenge was ensuring the LLM consistently returned valid, structured JSON without hallucinating or breaking the schema, especially when dynamically switching between languages and currency formats. I solved this by implementing a robust retry mechanism using `tenacity`, strict Pydantic data validation, and dynamic prompt engineering that adapts to the user's selected language, ensuring reliable and academically sound output every time.",
+        tags: ["React", "FastAPI", "Python", "Tailwind CSS v4", "OpenRouter API", "SQLite", "Vite", "Pydantic"],
+        features: [
+            "Bilingual support (Persian/English) with seamless RTL/LTR layout switching",
+            "AI-powered analysis using the 4 classical functions of management",
+            "Smart currency handling (Iranian Toman for Persian, USD for English)",
+            "Full CRUD operations for report archiving using a local SQLite database",
+            "Markdown export functionality for offline use and sharing",
+            "Modern, responsive UI with an ocean dark theme and glassmorphism effects"
+        ],
+        screenshots: ["/images/projects/management-agent-2.png", "/images/projects/management-agent-3.png"],
+        learned: [
+            "How to integrate LLMs with strict JSON schema enforcement and automatic retry logic",
+            "How to build a bilingual, RTL-supported React application with a custom i18n context",
+            "How to design a clean monorepo architecture separating a FastAPI backend from a Vite frontend",
+            "How to implement robust error handling and data validation using Pydantic"
+        ]
+    },
+    {
         _id: "6a8584d67b4ba4c465cda457",
         title: "Personal Portfolio",
         tagline: "My digital identity, built from scratch.",
