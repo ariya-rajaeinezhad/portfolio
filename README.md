@@ -71,23 +71,23 @@ The portfolio is organized into the following sections:
 
 ## 💼 Featured Projects
 
-### 1. AI Management Agent
+### 1. [AI Management Agent](https://github.com/ariya-rajaeinezhad/Management-Agent)
 A bilingual (Persian/English) AI system that generates structured management reports using the 4 classical functions of management.  
 **Stack:** `React` `FastAPI` `Python` `Tailwind CSS v4` `OpenRouter API` `SQLite`
 
-### 2. Personal Portfolio *(this project)*
+### 2. [Personal Portfolio](https://github.com/ariya-rajaeinezhad/portfolio) *(this project)*
 A modern, responsive portfolio with smooth animations and a custom backend API.  
 **Stack:** `React` `Node.js` `Tailwind CSS` `MongoDB` `React Router` `Motion`
 
-### 3. To-Do List App
+### 3. [To-Do List App](https://github.com/ariya-rajaeinezhad/ToDo-App)
 A full-stack task manager with persistent SQL storage and filtering.  
 **Stack:** `Node.js` `JavaScript` `HTML/CSS` `SQL`
 
-### 4. Blackjack
+### 4. [Blackjack](https://github.com/ariya-rajaeinezhad/BlackJack)
 A cooperative Blackjack card game built for the browser.  
 **Stack:** `JavaScript` `HTML` `CSS`
 
-### 5. Snake
+### 5. [Snake](https://github.com/ariya-rajaeinezhad/Snake)
 A modern remake of the classic Snake game built with Pygame.  
 **Stack:** `Python` `Pygame`
 
